@@ -1,10 +1,10 @@
 # Основные зависимости
-streamlit==1.32.0
-langchain==0.1.9
-langchain-openai==0.0.5
-python-dotenv==1.0.1
-pydantic==2.6.1
-openai==1.12.0
+streamlit>=1.31.0
+langchain>=0.1.0
+langchain-openai>=0.0.5
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+openai>=1.12.0
 pytest==8.0.0
 httpx==0.28.1
 requests==2.32.3
@@ -19,6 +19,8 @@ tenacity==9.1.2
 PyYAML==6.0.2
 certifi==2024.2.2
 pyperclip==1.8.2
+SQLAlchemy>=2.0.0
+psycopg2-binary>=2.9.9
 
 # Зависимости для разработки
 pytest-cov==6.1.1

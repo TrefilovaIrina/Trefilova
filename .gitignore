@@ -39,6 +39,8 @@ ENV/
 *.log
 logs/
 prompt_history.json
+*.db
+prompt_logs.db
 
 # Test coverage
 .coverage
