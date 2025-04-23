@@ -1,0 +1,148 @@
+/* Основные стили */
+.main-header {
+    font-size: 2.5rem;
+    color: #1E88E5;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.sub-header {
+    font-size: 1.8rem;
+    color: #424242;
+    margin: 1.5rem 0;
+    font-weight: 600;
+}
+
+/* Карточки и контейнеры */
+.metric-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 1rem 0;
+}
+
+.info-box {
+    background: #E3F2FD;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+.success-box {
+    background: #E8F5E9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+.warning-box {
+    background: #FFF3E0;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+/* Кнопки и элементы управления */
+.stButton>button {
+    width: 100%;
+    background-color: #1E88E5;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.stButton>button:hover {
+    background-color: #1565C0;
+}
+
+/* Текстовые поля */
+.stTextArea>div>div>textarea {
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+/* Сайдбар */
+.sidebar-header {
+    font-size: 1.2rem;
+    color: #424242;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Дополнительные элементы */
+.enhanced-prompt {
+    background: #F5F5F5;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.idea-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 1rem 0;
+}
+
+.idea-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1E88E5;
+    margin-bottom: 0.5rem;
+}
+
+.idea-description {
+    color: #424242;
+    margin: 0.5rem 0;
+}
+
+.idea-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.idea-tag {
+    background: #E3F2FD;
+    color: #1E88E5;
+    padding: 0.2rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+/* Модальные окна */
+.help-modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin: 1rem 0;
+}
+
+.help-text {
+    color: #424242;
+    line-height: 1.6;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .main-header {
+        font-size: 2rem;
+    }
+    
+    .sub-header {
+        font-size: 1.5rem;
+    }
+    
+    .metric-card {
+        padding: 1rem;
+    }
+} 
