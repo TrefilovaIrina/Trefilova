@@ -13,6 +13,8 @@ pyperclip==1.8.2
 SQLAlchemy==2.0.0
 psycopg2-binary==2.9.9
 tenacity==8.2.3
+langsmith==0.0.69
+langchain-core==0.1.17
 
 # Зависимости для разработки (опционально)
 pytest==8.0.0
