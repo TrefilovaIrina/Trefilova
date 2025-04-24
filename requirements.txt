@@ -15,6 +15,7 @@ psycopg2-binary==2.9.9
 tenacity==8.2.3
 langsmith==0.0.69
 langchain-core==0.1.7
+langchain-community==0.0.13
 
 # Зависимости для разработки (опционально)
 pytest==7.4.3
