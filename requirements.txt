@@ -1,7 +1,9 @@
 # Основные зависимости
 streamlit==1.31.0
-langchain==0.1.0
-langchain-openai==0.0.8
+langchain>=0.1.0
+langchain-openai>=0.0.8
+langchain-community>=0.0.19
+langsmith>=0.1.0
 python-dotenv==1.0.0
 pydantic==2.5.0
 openai==1.12.0
