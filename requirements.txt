@@ -1,27 +1,27 @@
 # Основные зависимости
-streamlit==1.27.0
-langchain==0.0.350
+streamlit==1.24.0
+langchain==0.0.267
 langchain-openai==0.0.2
 python-dotenv==1.0.0
-pydantic==2.4.2
-openai==1.6.1
-httpx==0.25.2
+pydantic==1.10.13
+openai==0.28.1
+httpx==0.24.1
 requests==2.31.0
 PyYAML==6.0.1
-certifi==2023.11.17
+certifi==2023.7.22
 pyperclip==1.8.2
-SQLAlchemy==2.0.23
-psycopg2-binary==2.9.9
-tenacity==8.2.3
-langsmith==0.0.69
-langchain-core==0.1.7
-langchain-community==0.0.13
-rich==13.7.0
-typing-extensions>=4.5.0
-typing-inspect>=0.8.0
+SQLAlchemy==2.0.20
+psycopg2-binary==2.9.6
+tenacity==8.2.2
+langsmith==0.0.52
+langchain-core==0.0.10
+langchain-community==0.0.10
+rich==13.3.5
+typing-extensions==4.5.0
+typing-inspect==0.8.0
 
 # Зависимости для разработки (опционально)
-pytest==7.4.3
+pytest==7.4.0
 pytest-cov==4.1.0
-pytest-mock==3.12.0
-coverage==7.3.2 
+pytest-mock==3.11.0
+coverage==7.2.7 
