@@ -25,10 +25,10 @@ class IdeaChains:
             
         self.llm = ChatOpenAI(
             api_key=self.api_key,
-            model_name=model_name,
+            model=model_name,
             temperature=temperature,
             max_tokens=OPENAI_MAX_TOKENS,
-            timeout=30,
+            request_timeout=30,
             max_retries=3
         )
         
