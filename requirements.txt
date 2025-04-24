@@ -1,5 +1,5 @@
 # Основные зависимости
-streamlit==1.28.0
+streamlit==1.27.0
 langchain==0.0.350
 langchain-openai==0.0.2
 python-dotenv==1.0.0
@@ -17,6 +17,8 @@ langsmith==0.0.69
 langchain-core==0.1.7
 langchain-community==0.0.13
 rich==13.7.0
+typing-extensions>=4.5.0
+typing-inspect>=0.8.0
 
 # Зависимости для разработки (опционально)
 pytest==7.4.3
