@@ -1,6 +1,6 @@
 [server]
-enableCORS = false
 enableXsrfProtection = true
+enableCORS = true
 
 [browser]
 gatherUsageStats = false 
