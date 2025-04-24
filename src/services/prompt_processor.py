@@ -35,11 +35,11 @@ class PromptProcessor:
                 raise APIError("OPENAI_API_KEY не установлен в переменных окружения")
                 
             self.llm = ChatOpenAI(
-                api_key=api_key,
-                model_name=model_name,
+                openai_api_key=api_key,
+                model=model_name,
                 temperature=temperature,
                 max_tokens=OPENAI_MAX_TOKENS,
-                timeout=30,
+                request_timeout=30,
                 max_retries=3
             )
             logger.info("ChatOpenAI успешно инициализирован")
