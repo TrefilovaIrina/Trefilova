@@ -3,9 +3,11 @@ services:
     name: prompt-enhancer
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: |
-      export PORT=10000
-      streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+    startCommand: streamlit run app.py
     envVars:
       - key: OPENAI_API_KEY
-        sync: false 
+        sync: false
+      - key: STREAMLIT_SERVER_PORT
+        value: 10000
+      - key: STREAMLIT_SERVER_ADDRESS
+        value: 0.0.0.0 
