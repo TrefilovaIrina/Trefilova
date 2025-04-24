@@ -50,9 +50,6 @@ htmlcov/
 .cache/
 .pytest_cache/
 
-# Streamlit
-.streamlit/
-
 # Other
 .DS_Store
 Thumbs.db 
