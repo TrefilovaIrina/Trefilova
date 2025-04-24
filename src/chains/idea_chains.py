@@ -24,12 +24,9 @@ class IdeaChains:
             raise ValueError("API ключ OpenAI не найден. Укажите его через параметр api_key или переменную окружения OPENAI_API_KEY")
             
         self.llm = ChatOpenAI(
-            api_key=self.api_key,
-            model_name=model_name,
-            temperature=temperature,
-            max_tokens=OPENAI_MAX_TOKENS,
-            timeout=30,
-            max_retries=3
+            openai_api_key=self.api_key,
+            model=model_name,
+            temperature=temperature
         )
         
         self.output_parser = JsonOutputParser()

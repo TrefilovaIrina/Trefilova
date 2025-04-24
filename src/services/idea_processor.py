@@ -22,12 +22,9 @@ class IdeaProcessor:
             raise ValueError("API ключ OpenAI не найден. Укажите его через параметр api_key или переменную окружения OPENAI_API_KEY")
         
         self.llm = ChatOpenAI(
-            api_key=self.api_key,
-            model_name=OPENAI_MODEL,
-            temperature=OPENAI_TEMPERATURE,
-            max_tokens=OPENAI_MAX_TOKENS,
-            timeout=30,
-            max_retries=3
+            openai_api_key=self.api_key,
+            model=OPENAI_MODEL,
+            temperature=OPENAI_TEMPERATURE
         )
         
         self.logger = logging.getLogger(__name__)

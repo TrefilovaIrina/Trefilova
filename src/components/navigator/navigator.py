@@ -19,12 +19,9 @@ class PromptNavigator:
                 raise ValueError("OPENAI_API_KEY не установлен в переменных окружения")
             
             self.llm = ChatOpenAI(
-                api_key=api_key,
-                model_name=OPENAI_MODEL,
-                temperature=OPENAI_TEMPERATURE,
-                max_tokens=OPENAI_MAX_TOKENS,
-                timeout=30,
-                max_retries=3
+                openai_api_key=api_key,
+                model=OPENAI_MODEL,
+                temperature=OPENAI_TEMPERATURE
             )
             logger.info("PromptNavigator успешно инициализирован")
         except Exception as e:
