@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 class PromptChains:
     """Класс для создания цепочек анализа и улучшения промптов."""
 
-    def __init__(self, api_key: Optional[str] = None, model: str = OPENAI_MODEL, temperature: float = OPENAI_TEMPERATURE):
+    def __init__(self, api_key: Optional[str] = None, model_name: str = OPENAI_MODEL, temperature: float = OPENAI_TEMPERATURE):
         """Инициализация цепочек промптов."""
         try:
             if not api_key:
@@ -20,7 +20,7 @@ class PromptChains:
                 
             self.llm = ChatOpenAI(
                 api_key=api_key,
-                model=model,
+                model=model_name,
                 temperature=temperature
             )
             logger.info("ChatOpenAI успешно инициализирован в PromptChains")

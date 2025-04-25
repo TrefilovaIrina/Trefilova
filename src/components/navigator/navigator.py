@@ -20,7 +20,7 @@ class PromptNavigator:
             
             self.llm = ChatOpenAI(
                 api_key=api_key,
-                model=OPENAI_MODEL,
+                model_name=OPENAI_MODEL,
                 temperature=OPENAI_TEMPERATURE
             )
             logger.info("PromptNavigator успешно инициализирован")
