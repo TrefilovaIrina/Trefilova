@@ -67,4 +67,23 @@ python -m pytest -v
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Setup
+
+### Windows
+```bash
+.\setup.bat
+```
+
+### Linux/Mac
+```bash
+chmod +x setup.sh
+./setup.sh
+```
+
+This will:
+1. Create a virtual environment
+2. Activate it
+3. Upgrade pip to the latest version
+4. Install all required dependencies 

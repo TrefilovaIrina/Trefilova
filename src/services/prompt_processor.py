@@ -5,7 +5,7 @@ from typing import Optional, Dict, Any, List, Union
 from datetime import datetime
 import json
 import re
-from langchain_openai import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnableSequence
 
@@ -31,12 +31,13 @@ class PromptProcessor:
     def __init__(self, api_key: Optional[str] = None, model_name: str = OPENAI_MODEL, temperature: float = OPENAI_TEMPERATURE):
         """Initialize the prompt processor."""
         try:
+            api_key = api_key or os.getenv("OPENAI_API_KEY")
             if not api_key:
                 raise APIError("OPENAI_API_KEY не установлен в переменных окружения")
                 
             self.llm = ChatOpenAI(
-                openai_api_key=api_key,
-                model=model_name,
+                api_key=api_key,
+                model_name=model_name,
                 temperature=temperature
             )
             logger.info("ChatOpenAI успешно инициализирован")
