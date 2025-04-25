@@ -1,6 +1,6 @@
 from typing import List, Dict, Any, Optional
 from datetime import datetime
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, field_validator
 
 class PromptAnalysis(BaseModel):
     """Модель для результатов анализа промпта."""
@@ -39,14 +39,16 @@ class EnhancementResult(BaseModel):
     processing_time: float = Field(default=0.0, description="Время обработки в секундах")
     timestamp: datetime = Field(default_factory=datetime.now, description="Время создания результата")
 
-    @validator("original_prompt", "enhanced_prompt")
+    @field_validator("original_prompt", "enhanced_prompt")
+    @classmethod
     def validate_prompts(cls, v: str) -> str:
         """Проверяет, что промпты не пустые."""
         if not v.strip():
             raise ValueError("Промпт не может быть пустым")
         return v.strip()
 
-    @validator("timestamp", pre=True)
+    @field_validator("timestamp", mode="before")
+    @classmethod
     def set_timestamp(cls, v: Optional[datetime]) -> datetime:
         """Устанавливает текущее время, если не указано."""
         return v or datetime.now()

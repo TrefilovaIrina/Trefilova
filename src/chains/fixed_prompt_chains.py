@@ -1,5 +1,5 @@
 from langchain_core.prompts import PromptTemplate
-from langchain_community.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_core.runnables import RunnableSequence, RunnablePassthrough
 from typing import Optional, Dict, Any
 import json
@@ -12,15 +12,15 @@ logger = logging.getLogger(__name__)
 class PromptChains:
     """Класс для создания цепочек анализа и улучшения промптов."""
 
-    def __init__(self, api_key: Optional[str] = None, model_name: str = OPENAI_MODEL, temperature: float = OPENAI_TEMPERATURE):
+    def __init__(self, api_key: Optional[str] = None, model: str = OPENAI_MODEL, temperature: float = OPENAI_TEMPERATURE):
         """Инициализация цепочек промптов."""
         try:
             if not api_key:
                 raise ValueError("OPENAI_API_KEY не установлен")
                 
             self.llm = ChatOpenAI(
-                openai_api_key=api_key,
-                model=model_name,
+                api_key=api_key,
+                model=model,
                 temperature=temperature
             )
             logger.info("ChatOpenAI успешно инициализирован в PromptChains")

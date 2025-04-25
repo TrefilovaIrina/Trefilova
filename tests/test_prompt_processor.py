@@ -12,7 +12,7 @@ def test_prompt_processor_initialization():
     try:
         processor = PromptProcessor(
             api_key=api_key,
-            model_name="gpt-3.5-turbo",
+            model="gpt-3.5-turbo",
             temperature=0.7
         )
         assert processor is not None
@@ -40,7 +40,7 @@ def test_prompt_processor_chain_initialization():
     try:
         processor = PromptProcessor(
             api_key=api_key,
-            model_name="gpt-3.5-turbo",
+            model="gpt-3.5-turbo",
             temperature=0.7
         )
         

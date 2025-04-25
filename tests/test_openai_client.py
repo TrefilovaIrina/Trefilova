@@ -1,6 +1,6 @@
 import os
 import pytest
-from langchain_community.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from unittest.mock import patch
 
 def test_chatopenai_initialization():
@@ -10,8 +10,8 @@ def test_chatopenai_initialization():
     # Тест 1: Базовая инициализация
     try:
         llm = ChatOpenAI(
-            openai_api_key=api_key,
-            model_name="gpt-3.5-turbo",
+            api_key=api_key,
+            model="gpt-3.5-turbo",
             temperature=0.7
         )
         assert llm is not None
@@ -24,7 +24,7 @@ def test_chatopenai_initialization():
     try:
         llm = ChatOpenAI(
             api_key=api_key,
-            model_name="gpt-3.5-turbo",
+            model="gpt-3.5-turbo",
             temperature=0.7,
             max_tokens=1000,
             request_timeout=30,
@@ -40,7 +40,7 @@ def test_chatopenai_initialization():
     with patch.dict(os.environ, {'OPENAI_API_KEY': api_key}):
         try:
             llm = ChatOpenAI(
-                model_name="gpt-3.5-turbo",
+                model="gpt-3.5-turbo",
                 temperature=0.7
             )
             assert llm is not None
@@ -55,18 +55,17 @@ def test_chatopenai_client_attributes():
     
     llm = ChatOpenAI(
         api_key=api_key,
-        model_name="gpt-3.5-turbo",
+        model="gpt-3.5-turbo",
         temperature=0.7
     )
     
     # Проверяем, что клиент имеет правильные атрибуты
     assert hasattr(llm, 'client'), "У ChatOpenAI должен быть атрибут client"
-    assert hasattr(llm, 'model_name'), "У ChatOpenAI должен быть атрибут model_name"
     assert hasattr(llm, 'temperature'), "У ChatOpenAI должен быть атрибут temperature"
     
     # Проверяем значения атрибутов
-    assert llm.model_name == "gpt-3.5-turbo"
     assert llm.temperature == 0.7
+    assert llm.model_name == "gpt-3.5-turbo"
     
     print("✅ Все атрибуты клиента проверены успешно")
 
