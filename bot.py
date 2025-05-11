@@ -23,9 +23,8 @@ logger.info(f"API_HASH: {API_HASH[:4]}...{API_HASH[-4:]}")
 logger.info(f"TARGET_CHATS: {TARGET_CHATS}")
 logger.info(f"YOUR_CHAT_ID: {YOUR_CHAT_ID}")
 
-# Создаем клиент с указанием полного пути к файлу сессии
-session_path = os.path.join(os.path.dirname(__file__), 'excursion_monitor.session')
-client = TelegramClient(session_path, API_ID, API_HASH)
+# Создаем клиент
+client = TelegramClient('excursion_monitor', API_ID, API_HASH)
 
 @client.on(events.NewMessage(chats=TARGET_CHATS))
 async def monitor_messages(event):
@@ -67,19 +66,7 @@ async def main():
     logger.info(f"Мониторинг чатов: {', '.join(TARGET_CHATS)}")
     
     try:
-        # Проверяем наличие файла сессии
-        if not os.path.exists(session_path):
-            logger.error("Файл сессии не найден! Пожалуйста, создайте сессию локально и загрузите файл.")
-            return
-            
-        logger.info("Найден файл сессии, подключаемся...")
-        await client.connect()
-        
-        # Проверяем авторизацию
-        if not await client.is_user_authorized():
-            logger.error("Сессия недействительна! Пожалуйста, создайте новую сессию локально.")
-            return
-        
+        await client.start()
         me = await client.get_me()
         logger.info(f"Авторизация успешна! Мониторинг через аккаунт: {me.first_name} {me.last_name if me.last_name else ''}")
         await client.run_until_disconnected()
