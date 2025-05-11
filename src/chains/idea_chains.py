@@ -25,7 +25,7 @@ class IdeaChains:
             
         self.llm = ChatOpenAI(
             openai_api_key=self.api_key,
-            model=model_name,
+            model_name=model_name,
             temperature=temperature
         )
         

@@ -37,7 +37,7 @@ class PromptProcessor:
                 
             self.llm = ChatOpenAI(
                 api_key=api_key,
-                model=model_name,
+                model_name=model_name,
                 temperature=temperature
             )
             logger.info("ChatOpenAI успешно инициализирован")

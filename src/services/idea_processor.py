@@ -23,7 +23,7 @@ class IdeaProcessor:
         
         self.llm = ChatOpenAI(
             openai_api_key=self.api_key,
-            model=OPENAI_MODEL,
+            model_name=OPENAI_MODEL,
             temperature=OPENAI_TEMPERATURE
         )
         
