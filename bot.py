@@ -2,6 +2,7 @@ import os
 import logging
 from dotenv import load_dotenv
 from telethon import TelegramClient, events
+from telethon.sessions import StringSession
 
 # Настройка логирования
 logging.basicConfig(
@@ -16,6 +17,7 @@ API_ID = int(os.getenv('API_ID'))
 API_HASH = os.getenv('API_HASH')
 TARGET_CHATS = os.getenv('TARGET_CHATS').split(',')  # Список чатов для мониторинга
 YOUR_CHAT_ID = int(os.getenv('YOUR_CHAT_ID'))
+SESSION_STRING = os.getenv('SESSION_STRING')
 
 logger.info("Starting bot with configuration:")
 logger.info(f"API_ID: {API_ID}")
@@ -24,7 +26,11 @@ logger.info(f"TARGET_CHATS: {TARGET_CHATS}")
 logger.info(f"YOUR_CHAT_ID: {YOUR_CHAT_ID}")
 
 # Создаем клиент
-client = TelegramClient('excursion_monitor', API_ID, API_HASH)
+if SESSION_STRING:
+    client = TelegramClient(StringSession(SESSION_STRING), API_ID, API_HASH)
+else:
+    session_path = os.path.join(os.path.dirname(__file__), 'excursion_monitor.session')
+    client = TelegramClient(session_path, API_ID, API_HASH)
 
 @client.on(events.NewMessage(chats=TARGET_CHATS))
 async def monitor_messages(event):
@@ -56,7 +62,6 @@ async def monitor_messages(event):
             # Отправляем уведомление
             await client.send_message(YOUR_CHAT_ID, notification)
             logger.info(f"Отправлено уведомление о сообщении от {sender_name} в чате {chat_title}")
-            
     except Exception as e:
         logger.error(f"Ошибка при обработке сообщения: {str(e)}")
 
@@ -64,7 +69,6 @@ async def main():
     """Основная функция"""
     logger.info("Скрипт запущен и мониторит сообщения...")
     logger.info(f"Мониторинг чатов: {', '.join(TARGET_CHATS)}")
-    
     try:
         await client.start()
         me = await client.get_me()
