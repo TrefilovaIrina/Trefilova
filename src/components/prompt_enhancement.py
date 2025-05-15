@@ -174,7 +174,7 @@ def display_prompt_enhancement(prompt_processor: PromptProcessor):
                 
                 # Отображаем результат
                 st.markdown("### Улучшенный промпт")
-                st.code(result.enhanced_prompt, language="text")
+                st.text_area("Улучшенный промпт", value=result.enhanced_prompt, height=300, disabled=True)
                 
                 # Логируем промпты в файл
                 metadata = {
