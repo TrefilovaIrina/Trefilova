@@ -1,12 +1,12 @@
-# Environment variables
-.env
-.env.local
-
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
+# C extensions
 *.so
+
+# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -19,39 +19,47 @@ lib64/
 parts/
 sdist/
 var/
-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-*.pyc
-*.session
 
-# Virtual Environment
+# Virtual environments
+.venv/
 venv/
-env/
 ENV/
+env/
 
-# IDE
-.idea/
+# Pytest
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS Code
 .vscode/
-*.swp
-*.swo
 
 # Logs
 *.log
-logs/
-prompt_history.json
+
+# Databases
 *.db
-prompt_logs.db
+*.sqlite3
 
-# Test coverage
-.coverage
-htmlcov/
+# Streamlit
+.streamlit/
 
-# Cache
-.cache/
-.pytest_cache/
+# Backup and data
+backup/
+data/
+
+# OS files
+.DS_Store
+Thumbs.db
 
 # Other
-.DS_Store
-Thumbs.db 
+*.bak
+*.swp
+
+# Ignore env files
+.env
+.env.* 
